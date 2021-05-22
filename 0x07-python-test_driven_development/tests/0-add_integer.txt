@@ -1,0 +1,15 @@
+=============================
+Tests to test function called that ``add_integer()`` that adds 2 integers.
+=============================
+``add_integer`` returns the sum of its arguments which have to be integers.
+it uses the `+` operator.
+
+    >>> add_integer = __import__("0-add_integer").add_integer
+    >>> add_integer(2, 3)
+    5
+    
+    >>> add_integer(2, 2)
+    4
+
+Float numbers are casted to int.
+
