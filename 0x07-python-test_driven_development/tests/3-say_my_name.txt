@@ -1,0 +1,22 @@
+Tests for a function a name
+===============================
+example, if both names are provided, print both,
+if one is given print it.
+================================
+The library has only one function called say_my_name
+
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+    >>> say_my_name("Erick", "Kiminza")
+    My name is Erick Kiminza
+
+    works also if one name is passed
+    
+    >>> say_my_name("Erick") # doctest: +NORMALIZE_WHITESPACE
+    My name is Erick
+
+    >>> say_my_name("", "Erick") # doctest: +NORMALIZE_WHITESPACE
+    My name is Erick
+
+    Raises an exception if name is not a string
+    >>> say_my_name(12, "Kilo") # doctest: +SKIP
+    first_name must be a string
