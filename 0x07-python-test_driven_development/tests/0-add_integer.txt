@@ -25,3 +25,10 @@ Float numbers are casted to int.
 
     >>> add_integer(2)
     100
+
+    >>> add_integer(3./4, 2)
+    2
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
