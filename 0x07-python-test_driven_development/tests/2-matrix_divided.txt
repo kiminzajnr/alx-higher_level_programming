@@ -1,0 +1,50 @@
+Function that divides all elements of a matrix
+==============================================
+uses only one function called matrix_divided
+
+    >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+    Division of a matrix with all integers
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    When div is a string
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], "3")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+    when one of the integers is a float
+    >>> matrix_divided([[1, 2.9999, 3], [4, 5, 6]], 3)
+    [[0.33, 1.0, 1.0], [1.33, 1.67, 2.0]]
+
+    division by zero i.e. div = 0
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+    when all elements of a matrix are strings
+    >>> matrix_divided([["1", "2", "3"], ["4", "5", "6"]], 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    when rows are of different size
+    >>> matrix_divided([[1, 3], [4, 5, 6]], 3)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+    when all elements of a matrix are 0.0
+    >>> matrix_divided([[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], 3)
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+    when one parameter is not given
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+    when all parameters are not given
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+    testing for NaN, Skip test because I am not yet sure of how to handle that
+    >>> matrix_divided([[1, NaN, 3], [4, 5, 6]], 3) # doctest: +SKIP
