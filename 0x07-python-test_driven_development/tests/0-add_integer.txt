@@ -7,9 +7,21 @@ it uses the `+` operator.
     >>> add_integer = __import__("0-add_integer").add_integer
     >>> add_integer(2, 3)
     5
-    
-    >>> add_integer(2, 2)
-    4
 
 Float numbers are casted to int.
+    >>> add_integer(100, -2)
+    98
 
+    >>> add_integer(100.3, -2)
+    98
+
+    >>> add_integer(100, "holberton")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer("holberton", 100)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(2)
+    100
