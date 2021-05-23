@@ -1,0 +1,30 @@
+Prints a square with the character #
+=======================================
+it is a simple library since it has only one function
+``print_square(size)`` where size is the length of the square
+
+size has to be an integer
+
+    >>> print_square = __import__("4-print_square").print_square
+    >>> print_square(4) # doctest: +NORMALIZE_WHITESPACE
+    ####
+    ####
+    ####
+    ####
+
+    >>> print_square(0)
+
+    for size less than zero
+    >>> print_square(-1)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+    for size of type float and less than 0
+    >>> print_square(0.99)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    for size thats not an integer
+    >>> print_square("square")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
