@@ -20,6 +20,12 @@ class TestMaxInteger(unittest.TestCase):
         """
         self.assertEqual(max_integer([]), None)
 
+    def test_one(self):
+        """
+            test for a list with one element
+        """
+        self.assertEqual(max_integer([2]), 2)
+
     def test_types(self):
         """
             raising errors when value are not integers
@@ -27,8 +33,20 @@ class TestMaxInteger(unittest.TestCase):
         self.assertRaises(TypeError, max_integer, [1, 2, 3, "4"])
         self.assertRaises(TypeError, max_integer, ["holberton", 2, 3, 4])
 
-    def test_values(self):
+    def test_negative(self):
         """
-            raising errors when value is not an integer
+            test for list with negative numbers only
         """
-        pass
+        self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
+
+    def test_onenegative(self):
+        """
+            test for one negative number in the list
+        """
+        self.assertEqual(max_integer([1, 2, 3, -4]), 3)
+
+    def test_max_at_biginning(self):
+        """
+            test if maximum number is at beginning
+        """
+        self.assertEqual(max_integer([4, 2, 3, 1]), 4)
