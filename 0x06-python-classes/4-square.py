@@ -18,12 +18,14 @@ class Square:
         """
         self.__size = size
 
+    @property
     def size(self):
         """
         to retrieve private instance attribute
         """
         return self.__size
 
+    @size.setter
     def size(self, value):
         """
         to set private instance attribute
