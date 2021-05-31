@@ -1,0 +1,28 @@
+Prints the list, but sorted in ascending sort
+=============================================
+the class inherits from list
+
+assumes all given values are of type int
+
+    >>> MyList = __import__('1-my_list').MyList
+
+    basic list
+    >>> MyList.print_sorted([1, 4, 2, 3, 5])
+    [1, 2, 3, 4, 5]
+
+    empty list
+    >>> MyList.print_sorted([])
+    []
+
+    list with one element
+    >>> MyList.print_sorted([9])
+    [9]
+
+    first element larger
+    >>> MyList.print_sorted([9, 4, 2, 3, 5])
+    [2, 3, 4, 5, 9]
+
+    list has a string
+    >>> MyList.print_sorted([1, 4, 2, 3, "5"])
+    Traceback (most recent call last):
+    TypeError: '<' not supported between instances of 'str' and 'int'
