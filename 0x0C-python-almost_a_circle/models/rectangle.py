@@ -16,28 +16,28 @@ class Rectangle(Base):
         self.__y = y
         try:
             assert isinstance(self.__width, int)
-        except:
+        except BaseException:
             raise TypeError("width must be an integer")
         if self.__width <= 0:
             raise ValueError("width must be > 0")
 
         try:
             assert isinstance(self.__height, int)
-        except:
+        except BaseException:
             raise TypeError("height must be an integer")
         if self.__height <= 0:
             raise ValueError("height must be > 0")
 
         try:
             assert isinstance(self.id, int)
-        except:
+        except BaseException:
             raise TypeError("id must be an integer")
         if self.id < 0:
             raise ValueError("id must be >= 0")
 
         try:
             assert isinstance(self.__x, int)
-        except:
+        except BaseException:
             raise TypeError("x must be an integer")
         if self.__x < 0:
             raise ValueError("x must be >= 0")
@@ -60,7 +60,7 @@ class Rectangle(Base):
         self.__width = value
         try:
             assert isinstance(self.__width, int)
-        except:
+        except BaseException:
             raise TypeError("width must be an integer")
         if self.__width <= 0:
             raise ValueError("width must be > 0")
@@ -76,7 +76,7 @@ class Rectangle(Base):
         self.__height = value
         try:
             assert isinstance(value, int)
-        except:
+        except BaseException:
             raise TypeError("height must be an integer")
         if self.__height <= 0:
             raise ValueError("height must be > 0")
@@ -92,7 +92,7 @@ class Rectangle(Base):
         self.__x = value
         try:
             assert isinstance(self.__x, int)
-        except:
+        except BaseException:
             raise TypeError("x must be an integer")
         if self.__x < 0:
             raise ValueError("x must be >= 0")
@@ -123,3 +123,8 @@ class Rectangle(Base):
             for j in range(self.__width):
                 print("#", end="")
             print()
+
+    def __str__(self):
+        """str method to return rectangle representation"""
+        return '[Rectangle] ({}) {}/{} - {}/{}'.format(self.id,
+                                                       self.__x, self.__y, self.__width, self.__height)
