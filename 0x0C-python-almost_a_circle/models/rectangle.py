@@ -132,3 +132,14 @@ class Rectangle(Base):
         """str method to return rectangle representation"""
         return '[Rectangle] ({}) {}/{} - {}/{}'.format(self.id,
                                                        self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args, **kwargs):
+        """assigns an argument to each list"""
+        for item in args:
+            id = id
+            width = width
+            height = height
+            x = x
+            y = y
+        for key, value in kwargs.items():
+            setattr(self, key, value)
