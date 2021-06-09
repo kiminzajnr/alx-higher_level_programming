@@ -10,44 +10,10 @@ class Rectangle(Base):
         """class constructor"""
 
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
-        try:
-            assert isinstance(self.__width, int)
-        except BaseException:
-            raise TypeError("width must be an integer")
-        if self.__width <= 0:
-            raise ValueError("width must be > 0")
-
-        try:
-            assert isinstance(self.__height, int)
-        except BaseException:
-            raise TypeError("height must be an integer")
-        if self.__height <= 0:
-            raise ValueError("height must be > 0")
-
-        try:
-            assert isinstance(self.id, int)
-        except BaseException:
-            raise TypeError("id must be an integer")
-        if self.id < 0:
-            raise ValueError("id must be >= 0")
-
-        try:
-            assert isinstance(self.__x, int)
-        except BaseException:
-            raise TypeError("x must be an integer")
-        if self.__x < 0:
-            raise ValueError("x must be >= 0")
-
-        try:
-            assert isinstance(self.__y, int)
-        except BaseException:
-            raise TypeError("y must be an integer")
-        if self.__y < 0:
-            raise ValueError("y must be >= 0")
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -57,13 +23,13 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """set width"""
-        self.__width = value
         try:
-            assert isinstance(self.__width, int)
+            assert isinstance(value, int)
         except BaseException:
             raise TypeError("width must be an integer")
-        if self.__width <= 0:
+        if value <= 0:
             raise ValueError("width must be > 0")
+        self.__width = value
 
     @property
     def height(self):
@@ -73,13 +39,13 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """set height"""
-        self.__height = value
         try:
             assert isinstance(value, int)
         except BaseException:
             raise TypeError("height must be an integer")
-        if self.__height <= 0:
+        if value <= 0:
             raise ValueError("height must be > 0")
+        self.__height = value
 
     @property
     def x(self):
@@ -89,13 +55,13 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """set x"""
-        self.__x = value
         try:
-            assert isinstance(self.__x, int)
+            assert isinstance(value, int)
         except BaseException:
             raise TypeError("x must be an integer")
-        if self.__x < 0:
+        if value < 0:
             raise ValueError("x must be >= 0")
+        self.__x = value
 
     @property
     def y(self):
@@ -105,13 +71,13 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """set y"""
-        self.__y = value
         try:
-            assert isinstance(self.__y, int)
+            assert isinstance(value, int)
         except BaseException:
             raise TypeError("y must be an integer")
-        if self.__y < 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
+        self.__y = value
 
     def area(self):
         """returns the area value of rectangle"""
@@ -131,15 +97,24 @@ class Rectangle(Base):
     def __str__(self):
         """str method to return rectangle representation"""
         return '[Rectangle] ({}) {}/{} - {}/{}'.format(self.id,
-                                                       self.__x, self.__y, self.__width, self.__height)
+                                                       self.__x,
+                                                       self.__y,
+                                                       self.__width,
+                                                       self.__height)
 
     def update(self, *args, **kwargs):
         """assigns an argument to each list"""
-        for item in args:
-            id = id
-            width = width
-            height = height
-            x = x
-            y = y
+        if (args):
+            for i, j in enumerate(args):
+                if i == 0:
+                    self.id = j
+                elif i == 1:
+                    self.width = j
+                elif i == 2:
+                    self.height = j
+                elif i == 3:
+                    self.x = j
+                elif i == 4:
+                    self.y = j
         for key, value in kwargs.items():
             setattr(self, key, value)
