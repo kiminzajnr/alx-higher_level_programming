@@ -33,3 +33,9 @@ class Base:
                 new_list.append(cls.to_dictionary(i))
         with open(file_name, 'w') as json_file:
             json_file.write(cls.to_json_string(new_list))
+
+    def from_json_string(json_string):
+        """returns a list of json string representation"""
+        if json_string is None or json_string == 0:
+            return []
+        return json.loads(json_string)
