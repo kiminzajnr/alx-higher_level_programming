@@ -3,8 +3,10 @@
 """
 import sys
 from model_state import Base, State
+
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
+
 if __name__ == "__main__":
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'.format(
@@ -16,5 +18,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     for state in session.query(State).order_by(State.id)[0:1]:
+        if not state:
+            print("Noting")
         print("{}: {}".format(state.id, state.name))
     session.close()
