@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" prints the first State object from the database hbtn_0e_6_usa
+""" prints the first State object from
+the database hbtn_0e_6_usa, script takes 3 arguments
 """
 import sys
 from model_state import Base, State
@@ -17,8 +18,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State).order_by(State.id)[0:1]:
+    for state in session.query(State)[0:1]:
         if not state:
-            print("Noting")
+            print("Nothing")
         print("{}: {}".format(state.id, state.name))
     session.close()
