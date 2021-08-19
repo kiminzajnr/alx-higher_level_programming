@@ -1,3 +1,3 @@
 #!/bin/bash
 # takes in a URL, sends a GET request to the URL and displays the body of the response
-echo "$(curl -so -X GET "$1")"
+curl -sb /dev/null -X GET "$1" -w "\n"
