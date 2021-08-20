@@ -3,7 +3,8 @@
 the value of X-Request-Id varialble found in the header
 of the response
 """
-import sys
-import urllib.request
-with urllib.request.urlopen(sys.argv[1]) as response:
-    print(response.headers.get('X-Request-Id'))
+if __name__ == "__main__":
+    import sys
+    import urllib.request
+    with urllib.request.urlopen(sys.argv[1]) as response:
+        print(response.headers.get('X-Request-Id'))
