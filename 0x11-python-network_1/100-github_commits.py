@@ -6,7 +6,7 @@ Print all commits by: <sha>: <author name>` (one by line)
 if __name__ == "__main__":
     import sys
     import requests
-    repo = sys.argv[1] + "/" + sys.argv[2]
+    repo = sys.argv[2] + "/" + sys.argv[1]
     url = 'https://api.github.com/repos/{0}/commits?per_page=10'.format(repo)
     r = requests.get(url)
     commits = r.json()
