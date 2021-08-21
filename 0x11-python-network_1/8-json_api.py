@@ -14,7 +14,7 @@ if __name__ == "__main__":
     url = 'http://0.0.0.0:5000/search_user'
     r = requests.post(url, data=params)
     if r.headers.get('content-type') == 'application/json':
-        if r.json == {}:
+        if r.json() == {}:
             print("No result")
         else:
             id_ = r.json().get('id')
