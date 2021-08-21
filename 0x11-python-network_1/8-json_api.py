@@ -6,10 +6,10 @@ as a parameter
 if __name__ == "__main__":
     import sys
     import requests
-    if len(sys.argv) == 1:
-        value = ""
-    else:
+    if len(sys.argv) > 1:
         value = sys.argv[1]
+    else:
+        value = ""
     params = {'q': value}
     url = 'http://0.0.0.0:5000/search_user'
     r = requests.post(url, data=params)
@@ -19,5 +19,5 @@ if __name__ == "__main__":
         print("[{}] {}".format(id_, name))
     elif r.json() == {}:
         print("No result")
-    elif r.headers.get('content-type') != ('application/json'):
+    elif r.headers.get('content-type') != 'application/json':
         print("Not a valid JSON")
