@@ -11,7 +11,7 @@ if __name__ == "__main__":
     else:
         value = sys.argv[1]
     params = {'q': value}
-    url = 'http://603d1bc940b5.ae4d45e0.alx-cod.online:5000/search_user'
+    url = 'http://0.0.0.0:5000/search_user'
     r = requests.post(url, data=params)
     if r.headers.get('content-type') == 'application/json' and r.json() != {}:
         id_ = r.json().get('id')
