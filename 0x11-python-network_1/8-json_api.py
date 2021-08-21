@@ -13,11 +13,12 @@ if __name__ == "__main__":
     params = {'q': value}
     url = 'http://0.0.0.0:5000/search_user'
     r = requests.post(url, data=params)
-    if r.headers.get('content-type') == 'application/json' and r.json() != {}:
-        id_ = r.json().get('id')
-        name = r.json().get('name')
-        print("[{}] {}".format(id_, name))
-    elif r.json() == {}:
-        print("No result")
-    elif r.headers.get('content-type') != 'application/json':
+    if r.headers.get('content-type') == 'application/json':
+        if r.json == {}:
+            print("No result")
+        else:
+            id_ = r.json().get('id')
+            name = r.json().get('name')
+            print("[{}] {}".format(id_, name))
+    else:
         print("Not a valid JSON")
