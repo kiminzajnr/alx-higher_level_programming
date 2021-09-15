@@ -7,6 +7,9 @@ const myArgs = process.argv.slice(2);
 const request = require('request');
 const characters_ = [];
 request(myArgs[0], function (error, response, body) {
+  if (error) {
+    console.log(error);
+  }
   if (!error) {
     let i = 0;
     const json_ = JSON.parse(body);
