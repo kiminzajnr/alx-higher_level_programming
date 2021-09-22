@@ -1,3 +1,4 @@
+#!/usr/bin/node
 /**
   * updates the color of the <header> element to red
   */
