@@ -23,20 +23,14 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
         """initialization of privates"""
+        self.integer_validator('width', width)
         self.__width = width
+        self.integer_validator('height', height)
         self.__height = height
-
-    def integer_validator(self, height, __height):
-        """validate height"""
-        integer_validator(height, __height)
-
-    def integer_validator(self, width, __width):
-        """validate width"""
-        integer_validator(width, __width)
 
     def area(self):
         """implementing area"""
-        self.__width * self.__height
+        return self.__width * self.__height
 
     def __str__(self):
         """return a str representation of square"""
@@ -48,11 +42,8 @@ class Square(Rectangle):
     def __init__(self, size):
         """initializer"""
         super().__init__(size, size)
+        self.integer_validator('size', size)
         self.__size = size
-
-    def integer_validator(self, size, __size):
-        """validator for size"""
-        super().integer_validator(size, __size)
 
     def area(self):
         """area validation for square"""
