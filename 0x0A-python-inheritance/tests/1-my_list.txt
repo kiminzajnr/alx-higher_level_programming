@@ -7,22 +7,43 @@ assumes all given values are of type int
     >>> MyList = __import__('1-my_list').MyList
 
     basic list
-    >>> MyList.print_sorted([1, 4, 2, 3, 5])
+
+    >>> my_list = MyList([1, 4, 2, 3, 5])
+    >>> my_list.print_sorted()
     [1, 2, 3, 4, 5]
 
     empty list
-    >>> MyList.print_sorted([])
+
+    >>> my_list = MyList([])
+    >>> my_list.print_sorted()
     []
 
     list with one element
-    >>> MyList.print_sorted([9])
+
+    >>> my_list = MyList([9])
+    >>> my_list.print_sorted()
     [9]
 
     first element larger
-    >>> MyList.print_sorted([9, 4, 2, 3, 5])
+
+    >>> my_list = MyList([9, 4, 2, 3, 5])
+    >>> my_list.print_sorted()
     [2, 3, 4, 5, 9]
 
+    Non-integer elements
+
+    >>> my_list = MyList(['one', 'three', 'two'])
+    >>> my_list.print_sorted()
+    ['one', 'three', 'two']
+
+    No arguments supplied
+
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
     list has a string
+
     >>> MyList.print_sorted([1, 4, 2, 3, "5"])
     Traceback (most recent call last):
     TypeError: '<' not supported between instances of 'str' and 'int'
