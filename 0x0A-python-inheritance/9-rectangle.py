@@ -11,8 +11,8 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """validates value"""
-        x = isinstance(value, int)
-        if not x:
+        x = type(value)
+        if x is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
@@ -23,16 +23,10 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
         """initialization of privates"""
+        self.integer_validator('width', width)
         self.__width = width
+        self.integer_validator('height', height)
         self.__height = height
-
-    def integer_validator(self, height, __height):
-        """validate height"""
-        integer_validator(height, __height)
-
-    def integer_validator(self, width, __width):
-        """validate width"""
-        integer_validator(width, __width)
 
     def area(self):
         """implementing area"""
