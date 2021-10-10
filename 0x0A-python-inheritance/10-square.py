@@ -30,7 +30,7 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         """implementing area"""
-        self.__width * self.__height
+        return self.__width * self.__height
 
     def __str__(self):
         """return a str representation"""
@@ -42,9 +42,4 @@ class Square(Rectangle):
     def __init__(self, size):
         """initializer"""
         super().__init__(size, size)
-        self.integer_validator('size', size)
         self.__size = size
-
-    def area(self):
-        """area validation for square"""
-        return self.__size * self.__size
