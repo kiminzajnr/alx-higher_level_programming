@@ -26,5 +26,5 @@ The specific list of projects contained in this track are:
 > - [0x14. Javascript - Web scraping](./0x14-javascript-web_scraping)
 > - [0x15. Javascript - Web JQuery](./0x15-javascript-web_jquery)
 
-> ooh, and :)
-![meme](img/alx_higher.jpg)
+ooh, and :)
+> ![meme](img/alx_higher.jpg)
