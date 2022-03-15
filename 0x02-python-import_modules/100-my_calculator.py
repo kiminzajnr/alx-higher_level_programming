@@ -33,7 +33,7 @@ if __name__ == "__main__":
                 sys.argv[3],
                 mul_))
     elif sys.argv[2] == "/":
-        div_ = div(sys.argv[1], sys.argv[3])
+        div_ = div(int(sys.argv[1]), int(sys.argv[3]))
         print(
             "{} {} {} = {}".format(
                 sys.argv[1],
