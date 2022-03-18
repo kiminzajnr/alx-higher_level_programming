@@ -11,16 +11,17 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *temp = *head;
 	int size = sizeof(int);
-
-	if (*head == NULL)
-		return (1);
-
+	int i = 1;
+	int left = 0;
+	int right = i - 1;
 	int *arr = malloc(100000 * sizeof(int));
 
 	arr[0] = (*head)->n;
 
+	if (*head == NULL)
+		return (1);
+
 	temp = temp->next;
-	int i = 1;
 
 	while (temp != NULL)
 	{
@@ -30,10 +31,6 @@ int is_palindrome(listint_t **head)
 		i++;
 		temp = temp->next;
 	}
-
-	int left = 0;
-	int right = i - 1;
-
 	for (; left < right; left++, right--)
 	{
 		if (arr[left] != arr[right])
