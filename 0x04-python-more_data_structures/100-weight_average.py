@@ -6,7 +6,7 @@ def weight_average(my_list=[]):
     """ return weighted average"""
     total = 0
     den = 0
-    if my_list is None:
+    if my_list == []:
         return 0
     for elem in my_list:
         total += elem[0] * elem[1]
