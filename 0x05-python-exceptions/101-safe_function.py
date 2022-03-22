@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 "safe function"
+
+
 def safe_function(fct, *args):
     try:
         resul = fct(*args)
