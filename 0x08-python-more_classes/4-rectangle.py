@@ -9,6 +9,14 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """instantiation"""
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        if width < 0:
+            raise ValueError("width must be >= 0")
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height < 0:
+            raise ValueError("height must be >= 0")
         self.__width = width
         self.__height = height
 
@@ -17,30 +25,28 @@ class Rectangle:
         """retrieve width"""
         return self.__width
 
-    @width.setter
-    def width(self, value):
-        """sets width"""
-        self.__width = value
-        try:
-            assert type(self.__width) == int
-        except BaseException:
-            raise TypeError("width must be an integer")
-        if self.__width < 0:
-            raise ValueError("width must be >= 0")
-
     @property
     def height(self):
         """retrieve height"""
         return self.__height
 
+    @width.setter
+    def width(self, value):
+        """sets width"""
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
+
     @height.setter
     def height(self, value):
         """sets height"""
-        self.__height = value
-        try:
-            assert type(self.__height) == int
-        except BaseException:
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value < 0:
             raise ValueError("height must be >= 0")
+        self.__height = value
 
     def area(self):
         """returns the area"""
@@ -48,21 +54,23 @@ class Rectangle:
 
     def perimeter(self):
         """returns the perimeter"""
-        if self.__height == 0 or self.__width == 0:
-            return 0
-        return self.__width * 2 + self.__height * 2
+        perimeter = 0
+        if self.__height is not 0 or self.__width is not 0:
+            perimeter = self.__width * 2 + self.__height * 2
+        return perimeter
 
     def __str__(self):
         """print rectangle using #"""
+        str_ = ""
         if self.__width == 0 or self. __height == 0:
             return ""
         for i in range(self.__height):
-            for j in range(self.__width):
-                print("#", end="")
-            print()
-        return ""
+            if i < (self.__height - 1):
+                str_ += ("#" * self.__width) + "\n"
+            else:
+                str_ += ("#" * self.__width)
+        return str_
 
     def __repr__(self):
         """repr method to enable create new instance using #"""
-        return "Rectangle(" + str(self.__width) +\
-            ", " + str(self.__height) + ")"
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
