@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """calculation"""
+import dis
 
-
-def magic_calculation(a, b=98):
+def magic_calculation(a, b):
     """does exactly same as bytecode given"""
-    return a + b
-    return a ** b
+    const = 98
+    result = pow(a, b) + const
+    return result
+print(dis.dis(magic_calculation))
