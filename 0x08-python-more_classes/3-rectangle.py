@@ -22,7 +22,7 @@ class Rectangle:
         self.__width = value
         try:
             assert type(self.__width) == int
-        except:
+        except BaseException:
             raise TypeError("width must be an integer")
         if self.__width < 0:
             raise ValueError("width must be >= 0")
@@ -38,7 +38,7 @@ class Rectangle:
         self.__height = value
         try:
             assert type(self.__height) == int
-        except:
+        except BaseException:
             raise ValueError("height must be >= 0")
 
     def area(self):
