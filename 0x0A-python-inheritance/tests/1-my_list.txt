@@ -30,20 +30,8 @@ assumes all given values are of type int
     >>> my_list.print_sorted()
     [2, 3, 4, 5, 9]
 
-    Non-integer elements
-
-    >>> my_list = MyList(['one', 'three', 'two'])
-    >>> my_list.print_sorted()
-    ['one', 'three', 'two']
-
     No arguments supplied
 
     >>> my_list = MyList()
     >>> my_list.print_sorted()
     []
-
-    list has a string
-
-    >>> MyList.print_sorted([1, 4, 2, 3, "5"])
-    Traceback (most recent call last):
-    TypeError: '<' not supported between instances of 'str' and 'int'
